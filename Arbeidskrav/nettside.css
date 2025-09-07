@@ -1,5 +1,19 @@
-<body>
+body{
+    background-color: beige;
 
-    h2  {color:blue; font-size:12px;}
+}
 
-</body> 
+h1{
+    text-align: center;
+    color: red;
+    text-shadow: 2px 2px 5px red
+    
+}
+p{
+    font-family: sans-serif;
+
+}
+h2{
+
+
+}
