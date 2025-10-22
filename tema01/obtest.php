@@ -1,30 +1,43 @@
-<?php /* Oppgave 1 */
+<?php /* Oppgave 2 */
 /*
-/* Programmet mottar postnr fra et HTML-skjema
-/* Programmet sjekker om postnr er korrekt fylt ut
+/* Programmet mottar klassekode fra et HTML-skjema
+/* Programmet sjekker om klassekode er korrekt fylt ut
 */
-$postnr=$_POST ["postnr"];
-$lovligPostnr=true;
-if (!$postnr) /* postnr er ikke fylt ut */
+$klassekode=$_POST ["klassekode"];
+$lovligKlassekode=true;
+if (!$klassekode) /* klassekode er ikke fylt ut */
 {
-$lovligPostnr=false;
-print("Postnr er ikke fylt ut <br />");
+$lovligKlassekode=false;
+print("Klassekode er ikke fylt ut <br />");
 }
-else if (strlen($postnr)!=4) /* postnr består ikke av 4 tegn */
+else if (strlen($klassekode)!=3) /* klassekode består ikke av 3 tegn */
 {
-$lovligPostnr=false;
-print("Postnr best&aring;r ikke av 4 tegn <br />");
+$lovligKlassekode=false;
+print("Klassekode best&aring;r ikke av 3 tegn <br />");
 }
 else
 {
-if (!ctype_digit($postnr)) /* minst ett av tegnene er ikke et siffer */
+$tegn1=$klassekode[0]; /* første tegn i klassekoden */
+$tegn2=$klassekode[1]; /* andre tegn i klassekoden */
+$tegn3=$klassekode[2]; /* tredje tegn i klassekoden */
+if (!ctype_alpha($tegn1)) /* tegn1 er ikke bokstav */
 {
-$lovligPostnr=false;
-print("Postnr best&aring;r ikke bare av siffre <br />");
+$lovligKlassekode=false;
+print("F&oslash;rste tegn er ikke en bokstav <br />");
+}
+if (!ctype_alpha($tegn2)) /* tegn2 er ikke bokstav */
+{
+$lovligKlassekode=false;
+print("Andre tegn er ikke en bokstav <br />");
+}
+if (!ctype_digit($tegn3)) /* tegn3 er ikke et siffer */
+{
+$lovligKlassekode=false;
+print("Siste tegn er ikke et siffer <br />");
 }
 }
-if ($lovligPostnr) /* postnr er korrekt fylt ut */
+if ($lovligKlassekode) /* klassekode er korrekt fylt ut */
 {
-print("Postnr er korrekt fylt ut <br />");
+print("Klassekode er korrekt fylt ut <br />");
 }
 ?>
